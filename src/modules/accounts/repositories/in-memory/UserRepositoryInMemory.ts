@@ -4,7 +4,19 @@ import { User } from '@modules/accounts/infra/typeorm/entities/User';
 import { IUserRepository } from '../IUserRepository';
 
 export class UserRepositoryInMemory implements IUserRepository {
+  private users: User[] = [];
+
   async create(data: ICreateUserDTO): Promise<User> {
-    throw new Error('Method not implemented.');
+    const user = new User();
+
+    Object.assign(user, data);
+
+    this.users.push(user);
+
+    return user;
+  }
+
+  async findByEmail(email: string): Promise<User | undefined> {
+    return this.users.find(user => user.email === email);
   }
 }
