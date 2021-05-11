@@ -6,7 +6,7 @@ import createConnection from '@shared/infra/typeorm';
 
 let connection: Connection;
 
-describe('CreateUserController', () => {
+describe('AuthenticateUserController', () => {
   beforeAll(async () => {
     connection = await createConnection();
     await connection.runMigrations();
@@ -18,13 +18,18 @@ describe('CreateUserController', () => {
   });
 
   it('should be able to create a new user', async () => {
-    const response = await request(app).post('/api/v1/users').send({
+    const responseUser = await request(app).post('/api/v1/users').send({
       name: 'Bessie Barton',
-      email: 'ujejoevu@kaw.is',
+      email: 'miccu@mosisbiw.ki',
       password: 'teste123',
     });
 
-    expect(response.status).toBe(201);
-    expect(response.body).toHaveProperty('id');
+    const responseToken = await request(app).post('/api/v1/sessions').send({
+      email: responseUser.body.email,
+      password: 'teste123',
+    });
+
+    expect(responseToken.status).toBe(200);
+    expect(responseToken.body).toHaveProperty('token');
   });
 });
