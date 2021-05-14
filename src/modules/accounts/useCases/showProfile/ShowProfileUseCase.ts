@@ -18,8 +18,6 @@ export class ShowProfileUseCase {
       throw new AppError('User not found', 404);
     }
 
-    delete user.password;
-
     return user;
   }
 }

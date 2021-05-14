@@ -4,15 +4,18 @@ import 'dotenv/config';
 import express, { NextFunction, Request, Response } from 'express';
 import 'express-async-errors';
 
+import upload from '@config/upload';
 import { AppError } from '@shared/errors/AppError';
 import createConnection from '@shared/infra/typeorm';
 
 import routes from './routes';
+
 import '@shared/container';
 
 createConnection();
 const app = express();
 
+app.use('/avatar', express.static(`${upload.tmpFolder}/avatar`));
 app.use(express.json());
 app.use('/api/v1', routes);
 

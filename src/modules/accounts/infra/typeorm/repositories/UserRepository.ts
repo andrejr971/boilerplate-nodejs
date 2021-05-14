@@ -33,4 +33,8 @@ export class UserRepository implements IUserRepository {
   async allUsers(): Promise<User[]> {
     return this.ormRepository.find();
   }
+
+  async update(user: User): Promise<User> {
+    return this.ormRepository.save(user);
+  }
 }

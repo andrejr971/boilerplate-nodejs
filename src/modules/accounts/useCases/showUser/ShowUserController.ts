@@ -1,3 +1,4 @@
+import { classToClass } from 'class-transformer';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
@@ -11,6 +12,6 @@ export class ShowUserController {
 
     const user = await showUserUseCase.execute(id);
 
-    return response.json(user);
+    return response.json(classToClass(user));
   }
 }
