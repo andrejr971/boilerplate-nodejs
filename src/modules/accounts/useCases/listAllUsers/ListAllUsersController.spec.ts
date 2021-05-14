@@ -6,7 +6,7 @@ import createConnection from '@shared/infra/typeorm';
 
 let connection: Connection;
 
-describe('Show user controller', () => {
+describe('List All User Controller', () => {
   beforeAll(async () => {
     connection = await createConnection();
     await connection.runMigrations();
@@ -17,14 +17,14 @@ describe('Show user controller', () => {
     await connection.close();
   });
 
-  it('should be able show user', async () => {
+  it('should be able list all users', async () => {
     const user = await request(app).post('/api/v1/users').send({
       name: 'Bessie Barton',
       email: 'miccu@mosisbiw.ki',
       password: 'teste123',
     });
 
-    const { id, email } = user.body;
+    const { email } = user.body;
 
     const responseToken = await request(app).post('/api/v1/sessions').send({
       email,
@@ -34,12 +34,12 @@ describe('Show user controller', () => {
     const { refresh_token } = responseToken.body;
 
     const responseUser = await request(app)
-      .get(`/api/v1/users/${id}`)
+      .get(`/api/v1/users`)
       .set({
         Authorization: `Bearer ${refresh_token}`,
       });
 
     expect(responseUser.status).toBe(200);
-    expect(responseUser.body).toHaveProperty('id');
+    expect(responseUser.body.length).toEqual(1);
   });
 });

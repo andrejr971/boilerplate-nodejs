@@ -29,4 +29,8 @@ export class UserRepository implements IUserRepository {
   async findById(user_id: string): Promise<User | undefined> {
     return this.ormRepository.findOne(user_id);
   }
+
+  async allUsers(): Promise<User[]> {
+    return this.ormRepository.find();
+  }
 }

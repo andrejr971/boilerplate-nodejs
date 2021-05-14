@@ -23,4 +23,8 @@ export class UserRepositoryInMemory implements IUserRepository {
   async findById(user_id: string): Promise<User | undefined> {
     return this.users.find(user => user.id === user_id);
   }
+
+  async allUsers(): Promise<User[]> {
+    return this.users;
+  }
 }
