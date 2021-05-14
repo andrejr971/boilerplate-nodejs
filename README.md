@@ -21,4 +21,41 @@
 - [TypeOrm](https://typeorm.io/#/)
 - [Jest](https://jestjs.io/)
 
-## Configur
+## Setup
+Para baixar e configurar o projeto siga as instruções abaixo:
+
+- Primeiro clone o projeto
+  ```bash
+    git clone  https://github.com/andrejr971/boilerplate-nodejs
+  ```
+- Navegue até a pasta
+  ```bash
+    cd boilerplate-nodejs
+  ```
+- Instale as dependências e inicie o servidor:
+  ```bash
+    yarn
+
+    yarn dev
+  ```
+### Rodar pelo Docker
+
+Edite o arquivo Dockerfile e docker-compose.yml
+
+```bash
+  docker build -t <name-container> .
+
+  docker run -p 3333:3333 <name-container>
+
+  # Usando docker-compose
+  docker-componse up
+
+  # Executar em segundo plano
+  docker-componse up -d
+
+  # logs
+  docker logs <name-container> -f
+
+  # Recriando Container
+  docker-compose up --force-recreate
+```
