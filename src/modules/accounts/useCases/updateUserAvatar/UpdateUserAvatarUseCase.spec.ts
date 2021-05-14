@@ -1,5 +1,5 @@
 import { UserRepositoryInMemory } from '@modules/accounts/repositories/in-memory/UserRepositoryInMemory';
-import { FakeStorageProivider } from '@shared/container/providers/StorageProvider/fakes/FakeStorageProvider';
+import { FakeStorageProivider } from '@shared/container/providers/StorageProvider/in-Memory/FakeStorageProvider';
 
 import { CreateUserUseCase } from '../createUser/CreateUserUseCase';
 import { UpdateUserAvatarUseCase } from './UpdateUserAvatarUseCase';

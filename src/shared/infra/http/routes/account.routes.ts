@@ -9,7 +9,6 @@ import ensureAuthenticated from '../middlewares/ensureAuthenticated';
 
 const accountRoutes = Router();
 const uploadFile = multer(upload);
-
 const showProfileController = new ShowProfileController();
 const updateUserAvatarController = new UpdateUserAvatarController();
 

@@ -35,8 +35,8 @@ export class UserTokensRepository implements IUserTokensRepository {
     return this.ormRepository.findOne({ where: { user_id, refresh_token } });
   }
 
-  async deleteById(id: string): Promise<void> {
-    await this.ormRepository.delete(id);
+  async deleteById(id: string): Promise<boolean> {
+    return !this.ormRepository.delete(id);
   }
 
   async findByRefreshToken(

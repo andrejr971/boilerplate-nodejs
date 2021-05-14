@@ -26,8 +26,9 @@ export class UserTokensRepositoryInMemory implements IUserTokensRepository {
     );
   }
 
-  async deleteById(id: string): Promise<void> {
+  async deleteById(id: string): Promise<boolean> {
     this.usersTokens.filter(token => token.id !== id);
+    return true;
   }
 
   async findByRefreshToken(
