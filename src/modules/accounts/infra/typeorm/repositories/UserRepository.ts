@@ -25,4 +25,8 @@ export class UserRepository implements IUserRepository {
       where: { email },
     });
   }
+
+  async findById(user_id: string): Promise<User | undefined> {
+    return this.ormRepository.findOne(user_id);
+  }
 }

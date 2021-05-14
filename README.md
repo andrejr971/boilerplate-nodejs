@@ -10,10 +10,6 @@
   </a>
 </p>
 
-<p align="center">
-  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-</p>
-
 ## Tecnologias
 
 - [NodeJS](https://nodejs.org/en/)
@@ -24,3 +20,5 @@
 - [JWT](https://typeorm.io/#/)
 - [TypeOrm](https://typeorm.io/#/)
 - [Jest](https://jestjs.io/)
+
+## Configur
