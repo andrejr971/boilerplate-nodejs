@@ -68,5 +68,5 @@ Edite o arquivo Dockerfile e docker-compose.yml
 
 ### Documentação da api
 Para a documentar a api, estou usando a lib [Swagger](https://swagger.io),
-disponível na rota: http://localhost:3333/docs/.
+disponível na rota: `/docs`.
 A configuração da documentação está no arquivo swagger.json
