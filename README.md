@@ -32,10 +32,15 @@ Para baixar e configurar o projeto siga as instruções abaixo:
   ```bash
     cd boilerplate-nodejs
   ```
-- Instale as dependências e inicie o servidor:
+- Instale as dependências:
   ```bash
     yarn
+  ```
+- Depois **Renomei o arquivo ormconfig.example.json para ormconfig.json**,
+é neste aquivo que fica as configurações de acesso ao banco, nele você vai colar as suas credenciais de acesso.
 
+- Para iniciar o servidor
+  ```bash
     yarn dev
   ```
 ### Rodar pelo Docker
