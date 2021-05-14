@@ -20,6 +20,7 @@
 - [JWT](https://typeorm.io/#/)
 - [TypeOrm](https://typeorm.io/#/)
 - [Jest](https://jestjs.io/)
+- [Swagger](https://swagger.io)
 
 ## Setup
 Para baixar e configurar o projeto siga as instruções abaixo:
@@ -64,3 +65,8 @@ Edite o arquivo Dockerfile e docker-compose.yml
   # Recriando Container
   docker-compose up --force-recreate
 ```
+
+### Documentação da api
+Para a documentar a api, estou usando a lib [Swagger](https://swagger.io),
+disponível na rota: http://localhost:3333/docs/.
+A configuração da documentação está no arquivo swagger.json

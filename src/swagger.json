@@ -1,0 +1,54 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Boilerplate NodeJS Documentation",
+    "description": "This is an API Boilerplate NodeJS",
+    "version": "1.0.0",
+    "contact": {
+      "email": "andre.souza64@fatec.sp.gov"
+    }
+  },
+  "paths": {
+    "/session": {
+      "post": {
+        "tags": ["Session"],
+        "sumary": "Authentication user",
+        "decription": "Authentication user",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "E-mail or password incorrect"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}

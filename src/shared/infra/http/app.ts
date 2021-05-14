@@ -1,19 +1,25 @@
 import 'reflect-metadata';
 import 'dotenv/config';
 
+// eslint-disable-next-line import-helpers/order-imports
 import express, { NextFunction, Request, Response } from 'express';
 import 'express-async-errors';
+
+import swaggerUi from 'swagger-ui-express';
 
 import upload from '@config/upload';
 import { AppError } from '@shared/errors/AppError';
 import createConnection from '@shared/infra/typeorm';
 
+import swaggerFile from '../../../swagger.json';
 import routes from './routes';
 
 import '@shared/container';
 
 createConnection();
 const app = express();
+
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 app.use('/avatar', express.static(`${upload.tmpFolder}/avatar`));
 app.use(express.json());
