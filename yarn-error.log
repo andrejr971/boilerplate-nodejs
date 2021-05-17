@@ -1,5 +1,5 @@
 Arguments: 
-  /home/andre/.nvm/versions/node/v14.16.1/bin/node /home/andre/.nvm/versions/node/v14.16.1/bin/yarn add @types/nodemailder -D
+  /home/andre/.nvm/versions/node/v14.16.1/bin/node /home/andre/.nvm/versions/node/v14.16.1/bin/yarn add @babel/cli @babel/core @babel/node @babel/plugin-proposal-class-properties @babel/plugin-proposal-decorators @babel/preset-env babel-plugin-model-resolver babel-plugin-transform-typescript-metadata -D
 
 PATH: 
   /home/andre/.nvm/versions/node/v14.16.1/bin:/home/andre/.zinit/polaris/bin:/home/andre/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/andre/.config/composer/vendor/bin:/home/andre/Android/Sdk/emulator:/home/andre/Android/Sdk/tools:/home/andre/Android/Sdk/tools/bin:/home/andre/Android/Sdk/platform-tools:/home/andre/android-studio/bin:/home/andre/.config/composer/vendor/bin:/home/andre/Android/Sdk/emulator:/home/andre/Android/Sdk/tools:/home/andre/Android/Sdk/tools/bin:/home/andre/Android/Sdk/platform-tools:/home/andre/android-studio/bin
@@ -14,7 +14,7 @@ Platform:
   linux x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@types%2fnodemailder: Not found
+  Error: https://registry.yarnpkg.com/babel-plugin-model-resolver: Not found
       at Request.params.callback [as _callback] (/home/andre/.nvm/versions/node/v14.16.1/lib/node_modules/yarn/lib/cli.js:66988:18)
       at Request.self.callback (/home/andre/.nvm/versions/node/v14.16.1/lib/node_modules/yarn/lib/cli.js:140662:22)
       at Request.emit (events.js:315:20)
@@ -47,7 +47,9 @@ npm manifest:
       "@types/mime": "^2.0.3",
       "@types/multer": "^1.4.5",
       "@types/node": "^14.14.41",
+      "@types/nodemailer": "^6.4.1",
       "@types/supertest": "^2.0.11",
+      "@types/swagger-ui-express": "^4.1.2",
       "@types/uuid": "^8.3.0",
       "@typescript-eslint/eslint-plugin": "^4.22.0",
       "@typescript-eslint/parser": "^4.22.0",
@@ -72,6 +74,7 @@ npm manifest:
       "dotenv": "^9.0.1",
       "express": "^4.17.1",
       "express-async-errors": "^3.1.1",
+      "handlebars": "^4.7.7",
       "jsonwebtoken": "^8.5.1",
       "mime": "^2.5.2",
       "multer": "^1.4.2",
@@ -79,6 +82,7 @@ npm manifest:
       "pg": "^8.6.0",
       "reflect-metadata": "^0.1.13",
       "supertest": "^6.1.3",
+      "swagger-ui-express": "^4.1.6",
       "ts-node-dev": "^1.1.6",
       "tsyringe": "^4.5.0",
       "typeorm": "^0.2.32",
@@ -803,6 +807,13 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.41.tgz#d0b939d94c1d7bd53d04824af45f1139b8c45615"
     integrity sha512-dueRKfaJL4RTtSa7bWeTK1M+VH+Gns73oCgzvYfHZywRCoPSd8EkXBL0mZ9unPTveBn+D9phZBaxuzpwjWkW0g==
   
+  "@types/nodemailer@^6.4.1":
+    version "6.4.1"
+    resolved "https://registry.yarnpkg.com/@types/nodemailer/-/nodemailer-6.4.1.tgz#31f96f4410632f781d3613bd1f4293649e423f75"
+    integrity sha512-8081UY/0XTTDpuGqCnDc8IY+Q3DSg604wB3dBH0CaZlj4nZWHWuxtZ3NRZ9c9WUrz1Vfm6wioAUnqL3bsh49uQ==
+    dependencies:
+      "@types/node" "*"
+  
   "@types/normalize-package-data@^2.4.0":
     version "2.4.0"
     resolved "https://registry.yarnpkg.com/@types/normalize-package-data/-/normalize-package-data-2.4.0.tgz#e486d0d97396d79beedd0a6e33f4534ff6b4973e"
@@ -860,6 +871,14 @@ Lockfile:
     integrity sha512-uci4Esokrw9qGb9bvhhSVEjd6rkny/dk5PK/Qz4yxKiyppEI+dOPlNrZBahE3i+PoKFYyDxChVXZ/ysS/nrm1Q==
     dependencies:
       "@types/superagent" "*"
+  
+  "@types/swagger-ui-express@^4.1.2":
+    version "4.1.2"
+    resolved "https://registry.yarnpkg.com/@types/swagger-ui-express/-/swagger-ui-express-4.1.2.tgz#cfc884904a104c3193f46f423d04ee0416be1ef4"
+    integrity sha512-t9teFTU8dKe69rX9EwL6OM2hbVquYdFM+sQ0REny4RalPlxAm+zyP04B12j4c7qEuDS6CnlwICywqWStPA3v4g==
+    dependencies:
+      "@types/express" "*"
+      "@types/serve-static" "*"
   
   "@types/uuid@^8.3.0":
     version "8.3.0"
@@ -2825,6 +2844,18 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/growly/-/growly-1.3.0.tgz#f10748cbe76af964b7c96c93c6bcc28af120c081"
     integrity sha1-8QdIy+dq+WS3yWyTxrzCivEgwIE=
   
+  handlebars@^4.7.7:
+    version "4.7.7"
+    resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.7.7.tgz#9ce33416aad02dbd6c8fafa8240d5d98004945a1"
+    integrity sha512-aAcXm5OAfE/8IXkcZvCepKU3VzW1/39Fb5ZuqMtgI/hT8X2YgoMvBY5dLhq/cpOvw7Lk1nK/UF71aLG/ZnVYRA==
+    dependencies:
+      minimist "^1.2.5"
+      neo-async "^2.6.0"
+      source-map "^0.6.1"
+      wordwrap "^1.0.0"
+    optionalDependencies:
+      uglify-js "^3.1.4"
+  
   har-schema@^2.0.0:
     version "2.0.0"
     resolved "https://registry.yarnpkg.com/har-schema/-/har-schema-2.0.0.tgz#a94c2224ebcac04782a0d9035521f24735b7ec92"
@@ -4302,6 +4333,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.2.tgz#feacf7ccf525a77ae9634436a64883ffeca346fb"
     integrity sha512-hZXc7K2e+PgeI1eDBe/10Ard4ekbfrrqG8Ep+8Jmf4JID2bNg7NvCPOZN+kfF574pFQI7mum2AUqDidoKqcTOw==
   
+  neo-async@^2.6.0:
+    version "2.6.2"
+    resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
+    integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
+  
   nice-try@^1.0.4:
     version "1.0.5"
     resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
@@ -5754,6 +5790,18 @@ Lockfile:
       has-flag "^4.0.0"
       supports-color "^7.0.0"
   
+  swagger-ui-dist@^3.18.1:
+    version "3.48.0"
+    resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-3.48.0.tgz#3d23194d86ec1e76b926a345578c290ef3fc6e98"
+    integrity sha512-UgpKIQW5RAb4nYRG8B615blmQzct0DNuvtX4904Fe2aMWAVfWeKHKl4kwzFXuBJgr2WYWTwM1PnhZ+qqkLrpPg==
+  
+  swagger-ui-express@^4.1.6:
+    version "4.1.6"
+    resolved "https://registry.yarnpkg.com/swagger-ui-express/-/swagger-ui-express-4.1.6.tgz#682294af3d5c70f74a1fa4d6a9b503a9ee55ea82"
+    integrity sha512-Xs2BGGudvDBtL7RXcYtNvHsFtP1DBFPMJFRxHe5ez/VG/rzVOEjazJOOSc/kSCyxreCTKfJrII6MJlL9a6t8vw==
+    dependencies:
+      swagger-ui-dist "^3.18.1"
+  
   symbol-tree@^3.2.4:
     version "3.2.4"
     resolved "https://registry.yarnpkg.com/symbol-tree/-/symbol-tree-3.2.4.tgz#430637d248ba77e078883951fb9aa0eed7c63fa2"
@@ -6096,6 +6144,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.2.4.tgz#8610b59747de028fda898a8aef0e103f156d0961"
     integrity sha512-V+evlYHZnQkaz8TRBuxTA92yZBPotr5H+WhQ7bD3hZUndx5tGOa1fuCgeSjxAzM1RiN5IzvadIXTVefuuwZCRg==
   
+  uglify-js@^3.1.4:
+    version "3.13.6"
+    resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.13.6.tgz#6815ac7fdd155d03c83e2362bb717e5b39b74013"
+    integrity sha512-rRprLwl8RVaS+Qvx3Wh5hPfPBn9++G6xkGlUupya0s5aDmNjI7z3lnRLB3u7sN4OmbB0pWgzhM9BEJyiWAwtAA==
+  
   unbox-primitive@^1.0.0:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/unbox-primitive/-/unbox-primitive-1.0.1.tgz#085e215625ec3162574dc8859abee78a59b14471"
@@ -6313,6 +6366,11 @@ Lockfile:
     version "1.2.3"
     resolved "https://registry.yarnpkg.com/word-wrap/-/word-wrap-1.2.3.tgz#610636f6b1f703891bd34771ccb17fb93b47079c"
     integrity sha512-Hz/mrNwitNRh/HUAtM/VT/5VH+ygD6DV7mYKZAtHOrbs8U7lvPS6xf7EJKMF0uW1KJCl0H701g3ZGus+muE5vQ==
+  
+  wordwrap@^1.0.0:
+    version "1.0.0"
+    resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-1.0.0.tgz#27584810891456a4171c8d0226441ade90cbcaeb"
+    integrity sha1-J1hIEIkUVqQXHI0CJkQa3pDLyus=
   
   wrap-ansi@^6.2.0:
     version "6.2.0"
